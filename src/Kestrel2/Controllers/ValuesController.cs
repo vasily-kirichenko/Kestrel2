@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kestrel2.Controllers
 {
-    public class Person
+  public class Person
     {
         public readonly string Name;
         public readonly int Age;
@@ -25,8 +22,8 @@ namespace Kestrel2.Controllers
         //[HttpGet]
         //public string Get() => "value1";
 
-        // GET api/values/5
         [HttpGet("{name}")]
+        //[Authorize]
         public Person Get(string name) => new Person(name, 41);
 
         // POST api/values

@@ -1,6 +1,6 @@
 {
   "iisSettings": {
-    "windowsAuthentication": false,
+    "windowsAuthentication": true,
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:10639/",
@@ -19,7 +19,7 @@
     "Kestrel2": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000/api/values",
+      "launchUrl": "http://localhost:5000/person/kot",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

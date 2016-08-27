@@ -13,7 +13,7 @@
     "Microsoft.Extensions.Logging.Console": "1.0.0",
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
-
+    "Microsoft.AspNetCore.Server.WebListener": "0.1.0"
   },
 
   "tools": {
@@ -52,5 +52,9 @@
 
   "scripts": {
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  },
+
+  "commands": {
+    "weblistener": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener"
   }
 }
