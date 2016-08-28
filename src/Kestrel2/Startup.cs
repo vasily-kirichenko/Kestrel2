@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Kestrel2
 {
-  public class Startup
+    public class Startup
     {
         public Startup(IHostingEnvironment env)
         {
@@ -27,15 +25,21 @@ namespace Kestrel2
         {
             //var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
             services.AddMvc(); // x => x.Filters.Add(new AuthorizeFilter(policy)));
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder application, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             //app.UseIdentity();
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-            app.UseMvc();
+            loggerFactory
+                .AddConsole(Configuration.GetSection("Logging"))
+                .AddDebug();
+            
+            application
+                .UseMvc()
+                .UseSwagger()
+                .UseSwaggerUi();
         }
     }
 }

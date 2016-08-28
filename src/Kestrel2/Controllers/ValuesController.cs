@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Kestrel2.Controllers
 {
-  public class Person
+    public class Person
     {
         public readonly string Name;
         public readonly int Age;
